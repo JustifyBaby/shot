@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./react.svg" type="image/x-icon" />
+    <title>SHOT</title>
+  </head>
+  <body>
+    <button onclick="shot()">SHOT</button>
+    <audio src="./拳銃を撃つ.mp3" style="display: none"></audio>
+    <script>
+      const rand = (min, max) =>
+        Math.floor(Math.random() * (max + 1 - min) + min);
+      const shot = () => {
+        document.querySelector("audio").play();
+        console.log("Shotted");
+        setTimeout("shot()", rand(200, 10000));
+      };
+    </script>
+  </body>
+</html>
