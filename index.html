@@ -12,10 +12,13 @@
     <script>
       const rand = (min, max) =>
         Math.floor(Math.random() * (max + 1 - min) + min);
-      const shot = () => {
+
+      const shot = async () => {
         document.querySelector("audio").play();
         console.log("Shotted");
-        setTimeout("shot()", rand(200, 10000));
+        await (() =>
+          new Promise((rlv) => setTimeout(rlv, rand(2000, 30000))))();
+        shot();
       };
     </script>
   </body>
